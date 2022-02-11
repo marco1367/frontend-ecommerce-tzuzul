@@ -5,7 +5,8 @@ import axios from 'axios';
 import GridContainer from '../../components/GridContainer';
 
 export async function getStaticProps(){
-    const resp_products = await axios.get('http://localhost:8000/products');
+    // const resp_products = await axios.get('http://localhost:8000/products');
+    const resp_products = await axios.get('/products');
 
     return {
         props: {
