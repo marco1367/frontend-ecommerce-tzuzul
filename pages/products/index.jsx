@@ -7,10 +7,7 @@ import GridContainer from '../../components/GridContainer';
 
 export async function getStaticProps(){
 
-    const URL = process.env.NEXT_PUBLIC_API || 'http://localhost:8000';
-    console.log('URL: ', URL);//-----
-
-    const resp_products = await axios.get(`${URL}/products`);
+    const resp_products = await axios.get('https://db-ecommerce-tzuzul.herokuapp.com/products');
 
     return {
         props: {

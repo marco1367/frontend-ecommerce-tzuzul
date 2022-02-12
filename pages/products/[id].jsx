@@ -7,9 +7,7 @@ import axios from 'axios';
 //------getStaticPaths------//
 export async function getStaticPaths() {
 
-  const URL = process.env.NEXT_PUBLIC_API || 'http://localhost:8000';
-
-  const resp_products = await axios.get(`${URL}/products`);
+  const resp_products = await axios.get(`https://db-ecommerce-tzuzul.herokuapp.com/products`);
 
   const paths = resp_products.data.map((product) =>
    {
@@ -29,9 +27,7 @@ export async function getStaticPaths() {
 //------getStaticProps------//
 export async function getStaticProps({params}){
 
-  const URL = process.env.NEXT_PUBLIC_API || 'http://localhost:8000';
-
-  const resp_product = await axios.get(`${URL}/products/${params.id}`);
+  const resp_product = await axios.get(`https://db-ecommerce-tzuzul.herokuapp.com/products/${params.id}`);
 
   return {
       props: {
