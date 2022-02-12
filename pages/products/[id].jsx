@@ -6,10 +6,12 @@ import axios from 'axios';
 
 //------getStaticPaths------//
 export async function getStaticPaths() {
+
   const URL = process.env.NEXT_PUBLIC_API || 'http://localhost:8000';
   console.log('URL: ', URL);//-----
-  // const resp_products = await axios.get('http://localhost:8000/products');
-  const resp_products = await axios.get(URL+'/products');
+
+  const resp_products = await axios.get(`${URL}/products`);
+
   const paths = resp_products.data.map((product) =>
    {
       return {params:{
@@ -27,9 +29,10 @@ export async function getStaticPaths() {
 
 //------getStaticProps------//
 export async function getStaticProps({params}){
-  // const URL = process.env.NEXT_PUBLIC_API || 'http://localhost:8000';
-  // const resp_product = await axios.get(`http://localhost:8000/products/${params.id}`);
-  const resp_product = await axios.get(`/products/${params.id}`);
+
+  const URL = process.env.NEXT_PUBLIC_API || 'http://localhost:8000';
+
+  const resp_product = await axios.get(`${URL}/products/${params.id}`);
 
   return {
       props: {

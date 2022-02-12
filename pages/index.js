@@ -10,7 +10,7 @@ export async function getServerSideProps() {
   dotenv.config();
   const { NEXT_PUBLIC_API } = process.env;
 
-  axios.defaults.baseURL = NEXT_PUBLIC_API || 'http://localhost:8000';
+  // axios.defaults.baseURL = NEXT_PUBLIC_API || 'http://localhost:8000';
 
   return {
     props: {}

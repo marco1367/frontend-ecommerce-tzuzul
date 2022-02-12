@@ -1,12 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 
+
 //components:
 import GridContainer from '../../components/GridContainer';
 
 export async function getStaticProps(){
-    // const resp_products = await axios.get('http://localhost:8000/products');
-    const resp_products = await axios.get('/products');
+
+    const URL = process.env.NEXT_PUBLIC_API || 'http://localhost:8000';
+    console.log('URL: ', URL);//-----
+
+    const resp_products = await axios.get(`${URL}/products`);
 
     return {
         props: {
