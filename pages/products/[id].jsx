@@ -8,12 +8,12 @@ import axios from 'axios';
 export async function getStaticPaths() {
 
   const URL = process.env.NEXT_PUBLIC_API || 'http://localhost:8000';
-  console.log('URL: ', URL);//-----
 
   const resp_products = await axios.get(`${URL}/products`);
 
   const paths = resp_products.data.map((product) =>
    {
+     console.log('paths: ', paths);//-----
       return {params:{
         id: toString(product.id_product)
       }}
