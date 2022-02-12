@@ -9,13 +9,13 @@ export async function getStaticPaths() {
 
   const resp_products = await axios.get(`https://db-ecommerce-tzuzul.herokuapp.com/products`);
 
-  const paths = resp_products.data.map((product) =>
-   {
+  const paths = resp_products.data.map((product) =>{
+    if(product.id_product){
       return {params:{
         id: toString(product.id_product)
       }}
     }
-  );
+  });
 
   return {
     paths,
