@@ -13,7 +13,6 @@ export async function getStaticPaths() {
 
   const paths = resp_products.data.map((product) =>
    {
-     console.log('paths: ', paths);//-----
       return {params:{
         id: toString(product.id_product)
       }}
