@@ -1,3 +1,15 @@
+import dotenv from 'dotenv';
+
+
+export async function getServerSideProps() {
+
+  dotenv.config();
+  const { NEXT_PUBLIC_BASE_URL } = process.env;
+
+  return {
+    props: {}
+  }
+};
 
 export default function Home() {
   return (
