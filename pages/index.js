@@ -5,7 +5,7 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
   dotenv.config();
   const { NEXT_PUBLIC_API } = process.env;
