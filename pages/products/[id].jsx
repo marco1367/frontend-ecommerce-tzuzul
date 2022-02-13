@@ -7,7 +7,6 @@ import axios from 'axios';
 //------getStaticPaths------//
 export async function getStaticPaths() {
   const URL = process.env.NEXT_PUBLIC_API || 'http://localhost:8000';
-  console.log('URL: ', URL);//-----
   // const resp_products = await axios.get('http://localhost:8000/products');
   const resp_products = await axios.get(URL+'/products');
   const paths = resp_products.data.map((product) =>
@@ -20,7 +19,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true
+    fallback: false
   };
 }
 
