@@ -1,6 +1,3 @@
-// import dotenv from 'dotenv';
-
-
 // export async function getServerSideProps() {
 
 //   dotenv.config();
