@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Head from 'next/head';
 
 
 
@@ -44,13 +45,20 @@ export default function ProductPage({ product }) {
     // const {id} = router.query;
 
     return (
-
-        <div>
-            <img src={product?.image} />
-            <h2>detalle del producto: {product?.id_product}</h2>
-            <h2>nombre: {product?.name} </h2>
-            <h2>precio: ${product?.price} </h2>
-        </div>
+        <>
+            <Head>
+                <title> {product?.name} | ecommerce-tzuzul </title>
+                <meta name='description' content={product?.name} />.
+                <meta name='author' content='Marco Pablo Demaio' />
+                <meta name='copyright' content='Marco Pablo Demaio' />
+            </Head>
+            <div>
+                <img src={product?.image} />
+                <h2>detalle del producto: {product?.id_product}</h2>
+                <h2>nombre: {product?.name} </h2>
+                <h2>precio: ${product?.price} </h2>
+            </div>
+        </>
 
     )
 }
