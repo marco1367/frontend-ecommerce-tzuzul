@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link'
+import Image from 'next/image';
 //styled:
 import styled from 'styled-components';
 
@@ -40,7 +41,8 @@ export default function CardProduct({ product }) {
     return (
         <Link href={`/products/${product.id_product}`} key={product.id_product} >
             <Card key={product.id_product} >
-                <img src={product.image} style={{ width: '100%', height: 'auto' }} />
+                {/* <img src={product.image} style={{ width: '100%', height: 'auto' }} /> */}
+                <Image src={product?.image} width={200} height={200} />
                 <div style={{ width: '100%', height: 'auto' }} >
                     <span className='product-price' > $ {product.price} </span>
                     <h2 className='product-title' > {product.name} </h2>

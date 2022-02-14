@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Head from 'next/head'
 
 
 //components:
@@ -19,6 +20,11 @@ export async function getStaticProps(){
 export default function ProductsPage({products}) {
 
     return (
-        <GridContainer products={products} />
+        <>
+            <Head>
+                <title>productos | ecommerce-tzuzul</title>
+            </Head>
+            <GridContainer products={products} />
+        </>
     )
 };
