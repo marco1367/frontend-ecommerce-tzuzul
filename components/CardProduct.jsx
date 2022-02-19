@@ -39,7 +39,7 @@ const Card = styled.div`
 export default function CardProduct({ product }) {
 
     return (
-        <Link href={`/products/${product?.id_product}`} key={toString(product?.id_product.toString())} >
+        <Link href={`/products/${product?.id_product}`} key={product?.id_product} >
             <Card key={product?.name} >
                 {/* <img src={product.image} style={{ width: '100%', height: 'auto' }} /> */}
                 <Image src={product?.image} width={200} height={200} />
