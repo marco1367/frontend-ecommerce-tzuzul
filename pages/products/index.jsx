@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import Head from 'next/head'
-
-
 //components:
 import GridContainer from '../../components/GridContainer';
+
+
 
 export async function getStaticProps(){
 
@@ -23,6 +23,8 @@ export default function ProductsPage({products}) {
         <>
             <Head>
                 <title>productos | ecommerce-tzuzul</title>
+                <meta name='author' content='Marco Pablo Demaio' />
+                <meta name='copyright' content='Marco Pablo Demaio' />
             </Head>
             <GridContainer products={products} />
         </>
