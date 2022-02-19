@@ -1,14 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import Head from 'next/head'
+
+
 //components:
 import GridContainer from '../../components/GridContainer';
 
-
-
 export async function getStaticProps(){
 
-    const resp_products = await axios.get(`https://db-ecommerce-tzuzul.herokuapp.com/products`);
+    const resp_products = await axios.get(`http://localhost:3000/api/productosFireBase`);
 
     return {
         props: {

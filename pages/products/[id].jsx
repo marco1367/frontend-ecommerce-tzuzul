@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 
     const resp_products = await axios.get(`https://db-ecommerce-tzuzul.herokuapp.com/products`);
 
-    const paths = resp_products?.data.map((product) => {
+    const paths = resp_products?.data?.map((product) => {
         const res = {
             params: {
                 id: '' + product?.id_product
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 //------getStaticProps------//
 export async function getStaticProps({ params }) {
 
-    const resp_product = await axios.get(`https://db-ecommerce-tzuzul.herokuapp.com/products/${params.id}`);
+    const resp_product = await axios.get(`https://db-ecommerce-tzuzul.herokuapp.com/products/${params?.id}`);
 
     return {
         props: {
