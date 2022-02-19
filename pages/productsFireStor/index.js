@@ -8,7 +8,9 @@ import GridContainer from '../../components/GridContainer';
 
 export async function getServerSideProps(context){
     try {
-        const resp_products = await axios.get(`${context.req.headers.host}/api/productosFireBase`);        
+        // const resp_products = await axios.get(`${context.req.headers.host}/api/productosFireBase`);        
+        const resp_products = await axios.get(`http://${context.req.headers.host}/api/productosFireBase`);       
+
         return {
             props: {
                 products: resp_products.data,
