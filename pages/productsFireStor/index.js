@@ -6,15 +6,18 @@ import Head from 'next/head'
 //components:
 import GridContainer from '../../components/GridContainer';
 
-export async function getStaticProps(){
-
-    const resp_products = await axios.get(`http://localhost:3000/api/productosFireBase`);
-
-    return {
-        props: {
-            products: resp_products.data,
+export async function getServerSideProps(context){
+    try {
+        const resp_products = await axios.get(`${context.req.headers.host}/api/productosFireBase`);        
+        return {
+            props: {
+                products: resp_products.data,
+            }
         }
+    } catch (error) {
+        console.log(error);
     }
+
 };
 
 export default function ProductsPage({products}) {
