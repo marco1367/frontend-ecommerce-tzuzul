@@ -11,5 +11,5 @@ export default function Footer({height}) {
 const FooterContainer = styled.div`
     width: 100%;
     height: ${props => props.height && `${props.height}`};
-    background-color: black;
+    background-color: #119360;
 `;

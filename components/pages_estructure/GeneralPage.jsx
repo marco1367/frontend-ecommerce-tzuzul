@@ -9,7 +9,7 @@ import Footer from './footer'
 const GeneralPageComponent = styled.div`
     width: 100vw;
     min-height: 100vh;
-    background-color: red;
+    background-color: #ededed;
     
     display: flex;
     align-items: center;

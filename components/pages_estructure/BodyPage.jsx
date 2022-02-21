@@ -13,9 +13,14 @@ export default function BodyPage({children, heightNavBar, heightFooter}) {
 
 
 const BodyPageContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   min-height: ${props => `calc(100vh - ${props.heightFooter} - ${props.heightNavBar})` };
-  background-color: green;
+  background-color: #ededed;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 10%;
+  padding-right: 10%;
+
   
   display: flex;
   justify-content: start;

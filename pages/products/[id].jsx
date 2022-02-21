@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Head from 'next/head';
+//components:
+import GeneralPage from '../../components/pages_estructure/GeneralPage';
 
 
 
@@ -52,12 +54,14 @@ export default function ProductPage({ product }) {
                 <meta name='author' content='Marco Pablo Demaio' />
                 <meta name='copyright' content='Marco Pablo Demaio' />
             </Head>
-            <div>
-                <img src={product?.image} />
-                <h2>detalle del producto: {product?.id_product}</h2>
-                <h2>nombre: {product?.name} </h2>
-                <h2>precio: ${product?.price} </h2>
-            </div>
+            <GeneralPage heightNavBar={'80px'} heightFooter={'50px'} >
+                <div>
+                    <img src={product?.image} />
+                    <h2>detalle del producto: {product?.id_product}</h2>
+                    <h2>nombre: {product?.name} </h2>
+                    <h2>precio: ${product?.price} </h2>
+                </div>
+            </GeneralPage>
         </>
 
     )
