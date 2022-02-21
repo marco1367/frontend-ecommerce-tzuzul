@@ -8,7 +8,7 @@ import CardProduct from './CardProduct';
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 250px);
-    max-width: 100vw;
+    width: 100%;
     height: auto;
     justify-content: center;
     grid-gap: 15px;

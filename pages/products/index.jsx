@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Head from 'next/head'
 //components:
+import GeneralPage from '../../components/pages_estructure/GeneralPage';
 import GridContainer from '../../components/GridContainer';
 
 
@@ -26,7 +27,9 @@ export default function ProductsPage({products}) {
                 <meta name='author' content='Marco Pablo Demaio' />
                 <meta name='copyright' content='Marco Pablo Demaio' />
             </Head>
-            <GridContainer products={products} />
+            <GeneralPage heightNavBar={'80px'} heightFooter={'50px'} >
+                <GridContainer products={products} />
+            </GeneralPage>
         </>
     )
 };
