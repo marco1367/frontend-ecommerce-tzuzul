@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Head from 'next/head';
+import { useSelector ,useDispatch } from "react-redux";
+import { addToCart, removeToCart } from "../../store/actions/cart/index";
 //components:
 import GeneralPage from '../../components/pages_estructure/GeneralPage';
 
@@ -43,8 +45,10 @@ export async function getStaticProps({ params }) {
 
 //------COMPONENTE------//
 export default function ProductPage({ product }) {
-    // const router = useRouter();
-    // const {id} = router.query;
+    const dispatch = useDispatch();
+    const stateCart = useSelector((state)=>state.cart);
+    
+
 
     return (
         <>
@@ -60,6 +64,8 @@ export default function ProductPage({ product }) {
                     <h2>detalle del producto: {product?.id_product}</h2>
                     <h2>nombre: {product?.name} </h2>
                     <h2>precio: ${product?.price} </h2>
+                    <button onClick={ () => dispatch(addToCart(product.id_product))} >Agregar al carrito</button>
+                    <button onClick={ () => dispatch(removeToCart(product.id_product))} >Eliminar del carrito</button>
                 </div>
             </GeneralPage>
         </>
