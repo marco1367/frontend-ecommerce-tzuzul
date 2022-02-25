@@ -46,8 +46,7 @@ export async function getStaticProps({ params }) {
 //------COMPONENTE------//
 export default function ProductPage({ product }) {
     const dispatch = useDispatch();
-    const stateCart = useSelector((state)=>state.cart);
-    
+    const stateCart = useSelector((state)=>state.cart);    
 
 
     return (
@@ -64,7 +63,7 @@ export default function ProductPage({ product }) {
                     <h2>detalle del producto: {product?.id_product}</h2>
                     <h2>nombre: {product?.name} </h2>
                     <h2>precio: ${product?.price} </h2>
-                    <button onClick={ () => dispatch(addToCart(product.id_product))} >Agregar al carrito</button>
+                    <button onClick={ () => dispatch(addToCart(product))} >Agregar al carrito</button>
                     <button onClick={ () => dispatch(removeToCart(product.id_product))} >Eliminar del carrito</button>
                 </div>
             </GeneralPage>

@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
 
 
 export default function NadVar({ height }) {
+    const stateCart = useSelector((state)=>state.cart);
+
     return (
         <NadVarContainer height={height} >
             <div>
@@ -12,6 +15,7 @@ export default function NadVar({ height }) {
             <div className='navigation-bttns' >
                 <Link href={'/products'} className='nav-link' >Productos</Link>
                 <Link href={'/productsFireStor'} className='nav-link' >Productos Fire</Link>
+                <Link href={'/cart'} className='nav-link' ><p>Carrito {stateCart.length}</p></Link> 
             </div>
         </NadVarContainer>
     )
@@ -28,12 +32,14 @@ const NadVarContainer = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    a{
+    a,p{
         padding:10px;
         margin: 10px;
         text-decoration: none;
         color:white;
+        cursor: pointer;
     }
+    
 
     .navigation-bttns{
         display: flex;

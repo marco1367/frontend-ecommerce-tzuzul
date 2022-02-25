@@ -8,18 +8,37 @@ const reducer = (state = initialState, action) => {
     // case HYDRATE:
     //   return { ...state, ...action.payload.user };
 
-    
+
+    //-------------
     case ADD_TO_CART:
       let newState_addToCart = [
-          ...state,
+        ...state,
       ];
-      newState_addToCart.push(action.payload);
-      console.log(action)
+      let productExist = false;
+      let position;
+      newState_addToCart.forEach((product, index) => {
+        if (product.id_product === action.payload.id_product) {
+          productExist = true;
+          position = index;
+        } else {
+          productExist = false
+        }
+      });
+
+      if (!productExist) {
+        newState_addToCart.push({
+          ...action.payload,
+          cantidad: 1,
+        });
+      } else {
+        newState_addToCart[position].cantidad = newState_addToCart[position].cantidad + 1;
+      }
       return newState_addToCart;
 
 
+    //-------------
     case REMOVE_TO_CART:
-      let newState_removeToCart = state.filter( productId => productId!==action.payload );
+      let newState_removeToCart = state.filter(product => product.id_product !== action.payload);
       return newState_removeToCart;
 
 
