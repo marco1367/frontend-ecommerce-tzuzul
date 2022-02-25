@@ -33,6 +33,7 @@ export default function Cart() {
                                         <Image src={product.image} width={50} height={50} />
                                         <p>{product.name}</p>
                                         <p>${product.price}</p>
+                                        <p>{product.cantidad}</p>
                                     </div>
                                 </Link>
                                 <p onClick={() => { dispatch(removeToCart(product?.id_product)) }} >Eliminar</p>
@@ -41,7 +42,7 @@ export default function Cart() {
                         :
                         <div className='cart-message-container' >
                             <h3>Tu carrito está vacío</h3>
-                            <p>¡Comience a elegir los mejores productos!</p>
+                            <p>¡Comience a elegir los mejores productos al precio mas bajo!</p>
                         </div>
                     }
                 </ProductsListContainer>
