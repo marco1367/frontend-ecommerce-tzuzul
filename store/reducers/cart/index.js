@@ -14,12 +14,11 @@ const reducer = (state = initialState, action) => {
           ...state,
       ];
       newState_addToCart.push(action.payload);
-      console.log(action)
       return newState_addToCart;
 
 
     case REMOVE_TO_CART:
-      let newState_removeToCart = state.filter( productId => productId!==action.payload );
+      let newState_removeToCart = state.filter( product => product.id_product!==action.payload );
       return newState_removeToCart;
 
 
