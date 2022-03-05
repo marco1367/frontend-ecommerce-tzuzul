@@ -4,9 +4,11 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeToCart } from '../../store/actions/cart';
+import { removeToCart, reduceToCart } from '../../store/actions/cart';
 //components:
 import GeneralPage from '../../components/pages_estructure/GeneralPage'
+import BttnAddToCart from '../../components/cart/bttnAddToCart';
+import BttnReduceToCart from '../../components/cart/bttnReduceToCart';
 
 export default function Cart() {
     const dispatch = useDispatch();
@@ -26,24 +28,26 @@ export default function Cart() {
                 <ProductsListContainer>
                     {
                         stateCart.length > 0 ?
-                        stateCart.map((product) => (
-                            <div className='product-container' >
-                                <Link href={`/products/${product?.id_product}`} >
-                                    <div className='product-list-details' >
-                                        <Image src={product.image} width={50} height={50} />
+                            stateCart.map((product) => (
+                                <div className='product-container' >
+                                    <Image src={product.image} width={50} height={50} />
+                                    <Link href={`/products/${product?.id_product}`} >
                                         <p>{product.name}</p>
-                                        <p>${product.price}</p>
+                                    </Link>
+                                    <p>${product.price}</p>
+                                    <div className='bttns-product' >
+                                        <BttnReduceToCart productId={product?.id_product} text={'-'} height={'20px'} width={'20px'} />
                                         <p>{product.cantidad}</p>
+                                        <BttnAddToCart product={product} text={'+'} height={'20px'} width={'20px'} ></BttnAddToCart>
                                     </div>
-                                </Link>
-                                <p onClick={() => { dispatch(removeToCart(product?.id_product)) }} >Eliminar</p>
+                                    <p onClick={() => { dispatch(removeToCart(product?.id_product)) }} >Eliminar</p>
+                                </div>
+                            ))
+                            :
+                            <div className='cart-message-container' >
+                                <h3>Tu carrito está vacío</h3>
+                                <p>¡Comience a elegir los mejores productos al precio mas bajo!</p>
                             </div>
-                        ))
-                        :
-                        <div className='cart-message-container' >
-                            <h3>Tu carrito está vacío</h3>
-                            <p>¡Comience a elegir los mejores productos al precio mas bajo!</p>
-                        </div>
                     }
                 </ProductsListContainer>
             </GeneralPage>
@@ -81,18 +85,19 @@ const ProductsListContainer = styled.div`
         align-items: center;
         justify-content: space-between;
 
-        .product-list-details{
-            cursor: pointer;
-
-            display: flex;
-            justify-content: space-between;
-            width: 90%;
-            align-items: center;
-        }
-
         p{
             padding: 5px;
             cursor: pointer;
+        }
+
+        .bttns-product{
+            width: auto;
+            height: auto;
+
+            display: flex;
+            felx-direction: row;
+            align-items: center;
+            justify-content: center;
         }
     }
 

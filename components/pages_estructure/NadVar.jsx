@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
+import logo from '../../public/PinaShop (2).png'
+import Image from 'next/image'
 
 
 export default function NadVar({ height }) {
@@ -9,13 +11,16 @@ export default function NadVar({ height }) {
 
     return (
         <NadVarContainer height={height} >
-            <div>
-                <Link href={'/'} className='nav-link' >Inicio</Link>
+            <div className='logo-container' >
+                <Link href="/" >
+                    <Image src={logo} width={210} height={50} objectFit='cover' />
+                </Link>
             </div>
             <div className='navigation-bttns' >
-                <Link href={'/products'} className='nav-link' >Productos</Link>
-                <Link href={'/productsFireStor'} className='nav-link' >Productos Fire</Link>
-                <Link href={'/cart'} className='nav-link' ><p>Carrito {stateCart.length}</p></Link> 
+                <Link href={'/products'} >Productos</Link>
+                {/* <Link href={'/productsFireStor'} >Productos Fire</Link> */}
+                <Link href={'/cart'} ><p>Carrito {stateCart.length}</p></Link> 
+                <Link href={'/createaccount'} ><p>Creá tu cuenta</p></Link> 
             </div>
         </NadVarContainer>
     )
@@ -33,13 +38,22 @@ const NadVarContainer = styled.div`
     align-items: center;
 
     a,p{
-        padding:10px;
+        padding:0;
         margin: 10px;
         text-decoration: none;
         color:white;
         cursor: pointer;
     }
-    
+
+    .logo-container{
+        height:100%;
+        cursor: pointer;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }    
 
     .navigation-bttns{
         display: flex;
