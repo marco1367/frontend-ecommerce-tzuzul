@@ -17,11 +17,11 @@ const GeneralPageComponent = styled.div`
     flex-direction: column;
 `
 
-export default function GeneralPage({children, heightNavBar, heightFooter}) {
+export default function GeneralPage({children, heightNavBar, heightFooter, justifyContent}) {
   return (
     <GeneralPageComponent>
       <NadVar height={heightNavBar} ></NadVar>
-      <BodyPage heightNavBar={heightNavBar} heightFooter={heightFooter} >
+      <BodyPage heightNavBar={heightNavBar} heightFooter={heightFooter} justifyContent={justifyContent} >
         {children}
       </BodyPage>
       <Footer height={heightFooter} ></Footer>

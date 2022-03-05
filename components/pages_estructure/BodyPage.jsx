@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 
 
-export default function BodyPage({children, heightNavBar, heightFooter}) {
+export default function BodyPage({children, heightNavBar, heightFooter, justifyContent}) {
   return (
-    <BodyPageContainer heightNavBar={heightNavBar} heightFooter={heightFooter} >
+    <BodyPageContainer heightNavBar={heightNavBar} heightFooter={heightFooter} justifyContent={justifyContent} >
       {children}
     </BodyPageContainer>
   )
@@ -23,7 +23,7 @@ const BodyPageContainer = styled.div`
 
   
   display: flex;
-  justify-content: start;
+  justify-content: ${props => props.justifyContent ? props.justifyContent : 'start' };
   align-items: center;
   flex-direction: column;
 `

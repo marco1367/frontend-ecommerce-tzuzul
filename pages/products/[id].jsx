@@ -12,6 +12,8 @@ import GeneralPage from '../../components/pages_estructure/GeneralPage';
 export async function getStaticPaths() {
 
     const resp_products = await axios.get(`https://db-ecommerce-tzuzul.herokuapp.com/products`);
+    // const resp_products = await axios.get(`http://localhost:8000/products`);
+
 
     const paths = resp_products?.data?.map((product) => {
         const res = {
@@ -33,6 +35,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 
     const resp_product = await axios.get(`https://db-ecommerce-tzuzul.herokuapp.com/products/${params?.id}`);
+    // const resp_product = await axios.get(`http://localhost:8000/products/${params?.id}`);
+
 
     return {
         props: {
