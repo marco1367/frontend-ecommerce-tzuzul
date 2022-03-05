@@ -11,9 +11,6 @@ const reducer = (state = initialStateNewAccount, action) => {
 
         //-------------
         case ADD_NEW_ACCOUNT:
-            // const response = await axios.post('http://localhost:8000/createaccount', action.payload);
-            // const newState = {...response.data.user.user};
-            console.log(action.payload);//-----
             let newState = { ...action.payload };
             return newState;
 
